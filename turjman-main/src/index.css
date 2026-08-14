@@ -1,0 +1,380 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #2563EB;
+  --color-secondary: #4F46E5;
+  --color-accent: #06B6D4;
+  --color-background: #F8FAFC;
+  --color-darkBackground: #09090B;
+  --color-card: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-text: #111827;
+  --color-mutedText: #6B7280;
+  --radius-3xl: 2rem;
+  --shadow-glow: 0 0 40px rgba(37, 99, 235, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Cairo', sans-serif;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+  color: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.site-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.1rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-header nav a,
+.header-cta {
+  color: #334155;
+  font-weight: 600;
+}
+
+.header-cta {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+}
+
+.hero {
+  padding: 48px 0 36px;
+  text-align: center;
+}
+
+.ai-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: #0f172a;
+}
+
+.hero h1 em {
+  color: #2563eb;
+  font-style: normal;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: 0 auto 24px;
+  font-size: 1.05rem;
+  color: #475569;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: #0f172a;
+  color: white;
+  font-weight: 700;
+}
+
+.store-button.play {
+  background: #2563eb;
+}
+
+.hero-phones {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.phone-card {
+  width: 170px;
+  padding: 12px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
+}
+
+.phone-screen {
+  border-radius: 18px;
+  background: linear-gradient(180deg, #eff6ff, #f8fafc);
+  padding: 14px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+.phone-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+}
+
+.phone-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-size: 2.2rem;
+}
+
+.section-wrap {
+  margin-top: 28px;
+  padding: 24px 0;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.feature-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+
+.feature-row.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.feature-copy h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.feature-copy p {
+  margin: 0 0 12px;
+  color: #475569;
+}
+
+.demo-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+}
+
+.feature-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  position: relative;
+}
+
+.blue-block {
+  position: absolute;
+  inset: 20px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.16), rgba(6,182,212,0.18));
+  z-index: 0;
+}
+
+.feature-visual .phone-card {
+  position: relative;
+  z-index: 1;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.faq-item {
+  border: 0;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.faq-item p {
+  margin: 10px 0 0;
+  color: #475569;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-header nav {
+    gap: 10px;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+}
+.scroll-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: #2f59ee;
+  box-shadow: 0 10px 22px #2854e955;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.2s ease;
+}
+
+.scroll-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-button:hover {
+  background: #163fc8;
+}
+
+@media (max-width: 700px) {
+  .scroll-top-button {
+    right: 16px;
+    bottom: 16px;
+    width: 40px;
+    height: 40px;
+  }
+}
