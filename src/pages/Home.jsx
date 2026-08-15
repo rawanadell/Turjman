@@ -18,6 +18,14 @@ import {
   StaggerContainer,
   StaggerItem,
 } from '../components/AnimateOnScroll';
+import heroPhones from '../assets/image/hero-phones.png';
+import img1 from '../assets/image/img1.png';
+import img2 from '../assets/image/img2.png';
+import img3 from '../assets/image/img3.png';
+import img4 from '../assets/image/img4.png';
+import img5 from '../assets/image/img5.png';
+import img6 from '../assets/image/img6.png';
+import img7 from '../assets/image/img7.png';
 
 const features = [
   {
@@ -26,7 +34,7 @@ const features = [
     description: 'From a single word to full documents — 100+ languages, context-aware AI.',
     type: 'photo',
     side: 'right',
-    image: 'img1.png',
+    image: img1,
   },
   {
     id: 'voice-mode',
@@ -34,7 +42,7 @@ const features = [
     description: 'Real-time voice recognition tuned for accents and natural speech patterns.',
     type: 'conversation',
     side: 'left',
-    image: 'img3.png',
+    image: img3,
   },
   {
     id: 'camera-mode',
@@ -42,7 +50,7 @@ const features = [
     description: 'AR overlay translates signs, menus, and labels instantly through your camera.',
     type: 'camera',
     side: 'right',
-    image: 'img4.png',
+    image: img4,
   },
   {
     id: 'photo-translation',
@@ -50,7 +58,7 @@ const features = [
     description: 'Upload screenshots or photos — every word extracted and translated accurately.',
     type: 'photo',
     side: 'left',
-    image: 'img5.png',
+    image: img5,
   },
   {
     id: 'live-conversation',
@@ -58,7 +66,7 @@ const features = [
     description: 'Translate live discussions without losing the natural flow of the exchange.',
     type: 'conversation',
     side: 'right',
-    image: 'img6.png',
+    image: img6,
   },
   {
     id: 'offline-packs',
@@ -66,7 +74,7 @@ const features = [
     description: 'Download language packs and keep translating anywhere, even without internet.',
     type: 'languages',
     side: 'left',
-    image: 'img7.png',
+    image: img7,
   },
 ];
 const faqs = [
@@ -312,7 +320,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl"></div>
                 <img
-                  src={`${import.meta.env.BASE_URL}image/hero-phones.png`}
+                  src={heroPhones}
                   alt="Turjman translation app"
                   className="relative w-full max-w-[850px] object-contain"
                 />
@@ -374,7 +382,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-xl"></div>
             <img
-              src={`${import.meta.env.BASE_URL}image/${feature.image}`}
+              src={feature.image}
               alt={feature.title}
               className="relative w-full max-w-[130px] object-contain sm:max-w-[280px] md:max-w-[850px]"
             />
@@ -565,7 +573,7 @@ export default function Home() {
         <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl"></div>
           <img
-            src={`${import.meta.env.BASE_URL}image/img2.png`}
+            src={img2}
             alt="Turjman translation app"
             className="relative w-full max-w-[850px] object-contain"
           />
