@@ -207,7 +207,7 @@ export default function Home() {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <FadeInOnLoad delay={0.1}>
-          <header className="flex items-center justify-between gap-4 py-6">
+          <header className="flex items-center justify-between gap-2 py-6">
             <button
               type="button"
               className="flex items-center gap-3 text-[15px] font-extrabold text-slate-900 dark:text-white group"
@@ -232,14 +232,13 @@ export default function Home() {
                 </button>
               ))}
               <motion.button
-                type="button"
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110"
-                whileHover={{ rotate: darkMode ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
-              </motion.button>
+  type="button"
+  onClick={() => setDarkMode(!darkMode)}
+  className="md:hidden p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+  whileTap={{ scale: 0.9 }}
+>
+  {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
+</motion.button>
             </nav>
 
             <motion.button
