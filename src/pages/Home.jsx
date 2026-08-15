@@ -310,7 +310,6 @@ export default function Home() {
           <FadeInOnLoad delay={0.6}>
             <Float className="mt-10 flex justify-center">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl"></div>
                 <img
                   src={`${import.meta.env.BASE_URL}image/hero-phones.png`}
                   alt="Turjman translation app"
@@ -372,7 +371,6 @@ export default function Home() {
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <div className="relative">
-            <div className="absolute -inset-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-xl"></div>
             <img
               src={`${import.meta.env.BASE_URL}image/${feature.image}`}
               alt={feature.title}
@@ -563,7 +561,6 @@ export default function Home() {
     <FadeIn direction="right" delay={0.15} className="flex w-1/2 justify-end">
       <Float>
         <div className="relative">
-          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl"></div>
           <img
             src={`${import.meta.env.BASE_URL}image/img2.png`}
             alt="Turjman translation app"
