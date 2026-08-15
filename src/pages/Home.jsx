@@ -207,7 +207,7 @@ export default function Home() {
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <FadeInOnLoad delay={0.1}>
-          <header className="flex items-center justify-between gap-2 py-6">
+          <header className="flex items-center justify-between gap-4 py-6">
             <button
               type="button"
               className="flex items-center gap-3 text-[15px] font-extrabold text-slate-900 dark:text-white group"
@@ -232,13 +232,14 @@ export default function Home() {
                 </button>
               ))}
               <motion.button
-  type="button"
-  onClick={() => setDarkMode(!darkMode)}
-  className="md:hidden p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
-  whileTap={{ scale: 0.9 }}
->
-  {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
-</motion.button>
+                type="button"
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110"
+                whileHover={{ rotate: darkMode ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
+              </motion.button>
             </nav>
 
             <motion.button
@@ -483,7 +484,7 @@ export default function Home() {
                   </div>
                   <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">"{quote}"</p>
                     <footer className="mt-auto pt-4 flex items-center gap-3">       
-                                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 text-sm font-black text-blue-700 dark:text-blue-300">
+                                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 text-sm font-black text-blue-700 dark:text-blue-300">
                       {name.charAt(0)}
                     </div>
                     <div>
