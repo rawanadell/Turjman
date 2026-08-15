@@ -85,49 +85,49 @@ const testimonials = [
 
 function Phone({ type = 'conversation', className = '' }) {
   return (
-    <div className={`relative w-40 rounded-[28px] border border-slate-200 bg-white p-3 shadow-[0_20px_40px_rgba(15,23,42,0.16)] ${className}`}>
-      <div className="rounded-[22px] border border-slate-100 bg-linear-to-b from-slate-50 to-blue-50 p-3">
-        <div className="mb-3 flex items-center justify-between text-[9px] font-medium text-slate-500">
+    <div className={`relative w-40 rounded-[28px] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 shadow-[0_20px_40px_rgba(15,23,42,0.16)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)] ${className}`}>
+      <div className="rounded-[22px] border border-slate-100 dark:border-slate-800 bg-linear-to-b from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 p-3">
+        <div className="mb-3 flex items-center justify-between text-[9px] font-medium text-slate-500 dark:text-slate-400">
           <span>9:41</span>
           <span>● ◔ ▮</span>
         </div>
 
-        <div className="rounded-2xl bg-white/80 p-3">
+        <div className="rounded-2xl bg-white/80 dark:bg-slate-800/80 p-3">
           {type === 'camera' ? (
             <div className="flex h-40 items-center justify-center rounded-2xl bg-linear-to-br from-slate-800 to-slate-600 text-slate-200">
               <ScanLine size={24} />
             </div>
           ) : type === 'photo' ? (
-            <div className="rounded-2xl bg-blue-50 p-3 text-center">
-              <div className="mb-3 flex justify-center text-blue-600">
+            <div className="rounded-2xl bg-blue-50 dark:bg-blue-900/30 p-3 text-center">
+              <div className="mb-3 flex justify-center text-blue-600 dark:text-blue-400">
                 <CameraIcon size={20} />
               </div>
-              <div className="rounded-xl bg-white px-3 py-2 text-[10px] font-semibold text-slate-700 shadow-sm">
+              <div className="rounded-xl bg-white dark:bg-slate-700 px-3 py-2 text-[10px] font-semibold text-slate-700 dark:text-white shadow-sm">
                 Image Translation
               </div>
             </div>
           ) : type === 'languages' ? (
-            <div className="space-y-2 rounded-2xl border border-slate-200 bg-white p-3 text-[10px] text-slate-600">
-              <div className="font-semibold text-slate-800">Download languages</div>
+            <div className="space-y-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 text-[10px] text-slate-600 dark:text-slate-300">
+              <div className="font-semibold text-slate-800 dark:text-white">Download languages</div>
               {['English', 'French', 'Japanese', 'Arabic'].map((lang) => (
-                <div key={lang} className="flex items-center justify-between border-b border-slate-100 pb-2 last:border-b-0 last:pb-0">
+                <div key={lang} className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-2 last:border-b-0 last:pb-0">
                   <span>{lang}</span>
-                  <span className="font-semibold text-blue-600">↓</span>
+                  <span className="font-semibold text-blue-600 dark:text-blue-400">↓</span>
                 </div>
               ))}
             </div>
           ) : (
             <div className="space-y-2 text-center">
-              <div className="rounded-xl bg-slate-100 px-3 py-2 text-[10px] font-semibold text-slate-700">
+              <div className="rounded-xl bg-slate-100 dark:bg-slate-700 px-3 py-2 text-[10px] font-semibold text-slate-700 dark:text-white">
                 Live Conversation
               </div>
-              <div className="rounded-xl bg-slate-50 px-3 py-2 text-left text-[10px] text-slate-600">
+              <div className="rounded-xl bg-slate-50 dark:bg-slate-800 px-3 py-2 text-left text-[10px] text-slate-600 dark:text-slate-300">
                 Where are you from?
               </div>
-              <div className="rounded-xl bg-blue-100 px-3 py-2 text-right text-[10px] font-medium text-blue-700">
+              <div className="rounded-xl bg-blue-100 dark:bg-blue-900/50 px-3 py-2 text-right text-[10px] font-medium text-blue-700 dark:text-blue-300">
                 أين أنت من؟
               </div>
-              <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">
+              <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 dark:bg-blue-500 text-white">
                 <Volume2 size={14} />
               </div>
             </div>
@@ -140,10 +140,10 @@ function Phone({ type = 'conversation', className = '' }) {
 
 function SectionLabel({ children }) {
   return (
-    <div className="mx-auto flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-[0.35em] text-slate-500">
-      <span className="h-px w-6 bg-slate-400" />
+    <div className="mx-auto flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
+      <span className="h-px w-6 bg-slate-400 dark:bg-slate-600" />
       {children}
-      <span className="h-px w-6 bg-slate-400" />
+      <span className="h-px w-6 bg-slate-400 dark:bg-slate-600" />
     </div>
   );
 }
@@ -201,9 +201,9 @@ export default function Home() {
 
  return (
   <div id="top">
-    <main className="min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 text-slate-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 dark:from-blue-900/20 dark:via-transparent dark:to-cyan-900/20 pointer-events-none"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent dark:from-blue-900/10 dark:via-transparent dark:to-transparent pointer-events-none"></div>
+    <main className="min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 text-slate-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 dark:text-white transition-colors duration-300">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 dark:from-blue-900/10 dark:via-transparent dark:to-cyan-900/10 pointer-events-none transition-colors duration-300"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/20 via-transparent to-transparent dark:from-blue-900/5 dark:via-transparent dark:to-transparent pointer-events-none transition-colors duration-300"></div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <FadeInOnLoad delay={0.1}>
@@ -238,13 +238,13 @@ export default function Home() {
                 whileHover={{ rotate: darkMode ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {darkMode ? <Sun size={20} className="text-yellow-500" /> : <Moon size={20} className="text-slate-600" />}
+                {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
               </motion.button>
             </nav>
 
             <motion.button
               type="button"
-              className="rounded-full border border-blue-200/50 bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-blue-600 shadow-sm shadow-blue-500/10 transition-all hover:bg-blue-50 hover:shadow-md hover:shadow-blue-500/20"
+              className="rounded-full border border-blue-200/50 dark:border-blue-500/30 bg-white/80 dark:bg-blue-950/40 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400 shadow-sm shadow-blue-500/10 transition-all hover:bg-blue-50 dark:hover:bg-blue-900/50 hover:shadow-md hover:shadow-blue-500/20"
               onClick={() => scrollToSection('download')}
               whileHover={{ y: -2, scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
@@ -256,22 +256,22 @@ export default function Home() {
 
         <section id="top" className="py-10 text-center md:py-16">
           <FadeInOnLoad delay={0.15}>
-            <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200/50 bg-blue-50/80 backdrop-blur-sm px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-blue-600 shadow-sm shadow-blue-500/10">
-              <Zap size={12} className="text-yellow-500" />
+            <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200/50 dark:border-blue-500/20 bg-blue-50/80 dark:bg-blue-900/20 backdrop-blur-sm px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400 shadow-sm shadow-blue-500/10">
+              <Zap size={12} className="text-yellow-500 dark:text-yellow-400" />
               AI-Powered · 100+ Languages
             </div>
           </FadeInOnLoad>
 
           <FadeInOnLoad delay={0.25}>
-            <h1 className="mx-auto max-w-4xl text-4xl font-black leading-[0.95] tracking-[-0.03em] text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="mx-auto max-w-4xl text-4xl font-black leading-[0.95] tracking-[-0.03em] text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
               Smart Translation
               <br />
-              <em className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent not-italic">Application</em>
+              <em className="bg-gradient-to-r from-blue-600 to-cyan-400 dark:from-blue-400 dark:to-cyan-300 bg-clip-text text-transparent not-italic">Application</em>
             </h1>
           </FadeInOnLoad>
 
           <FadeInOnLoad delay={0.35}>
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-600 dark:text-gray-300 sm:text-base">
               Turjman breaks language barriers with text, voice, camera, image, and live conversation translation — all in one app.
             </p>
           </FadeInOnLoad>
@@ -281,7 +281,7 @@ export default function Home() {
               <motion.button
                 type="button"
                 onClick={() => scrollToSection('download')}
-                className="flex items-center gap-2 rounded-2xl bg-slate-950 px-4 py-3 text-left text-white shadow-xl shadow-slate-500/20 hover:shadow-slate-500/30"
+                className="flex items-center gap-2 rounded-2xl bg-slate-950 dark:bg-slate-800 px-4 py-3 text-left text-white shadow-xl shadow-slate-500/20 dark:shadow-black/40 hover:shadow-slate-500/30"
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -294,7 +294,7 @@ export default function Home() {
               <motion.button
                 type="button"
                 onClick={() => scrollToSection('download')}
-                className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 text-left text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
+                className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 text-left text-white shadow-lg shadow-blue-500/25 dark:shadow-blue-900/40 hover:shadow-blue-500/40"
                 whileHover={{ y: -3, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -310,7 +310,7 @@ export default function Home() {
           <FadeInOnLoad delay={0.6}>
             <Float className="mt-10 flex justify-center">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 dark:from-blue-500/10 dark:to-cyan-500/10 rounded-3xl blur-2xl"></div>
                 <img
                   src={`${import.meta.env.BASE_URL}image/hero-phones.png`}
                   alt="Turjman translation app"
@@ -324,7 +324,7 @@ export default function Home() {
      <section id="features" className="mx-auto max-w-5xl py-12 md:py-20">
   <FadeIn>
     <SectionLabel>FEATURES</SectionLabel>
-    <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 sm:text-4xl">
+    <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 dark:text-white sm:text-4xl">
       Every Way You Communicate
     </h2>
   </FadeIn>
@@ -345,17 +345,17 @@ export default function Home() {
   }`}
 >
         <div className="space-y-2 sm:space-y-4">
-          <h3 className="text-sm font-black leading-tight text-slate-900 sm:text-xl md:text-2xl">
+          <h3 className="text-sm font-black leading-tight text-slate-900 dark:text-white sm:text-xl md:text-2xl">
             {feature.title}
           </h3>
 
-          <p className="text-[11px] leading-5 text-slate-600 sm:text-sm sm:leading-7 md:max-w-md">
+          <p className="text-[11px] leading-5 text-slate-600 dark:text-gray-300 sm:text-sm sm:leading-7 md:max-w-md">
             {feature.description}
           </p>
 
           <motion.button
             type="button"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-2.5 py-1.5 text-[10px] font-semibold text-white shadow-lg shadow-blue-500/25 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm hover:shadow-blue-500/40"
+            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-2.5 py-1.5 text-[10px] font-semibold text-white shadow-lg shadow-blue-500/25 dark:shadow-blue-900/40 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm hover:shadow-blue-500/40"
             onClick={() => scrollToSection('download')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
@@ -372,7 +372,7 @@ export default function Home() {
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <div className="relative">
-            <div className="absolute -inset-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-xl"></div>
+            <div className="absolute -inset-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 dark:from-blue-500/5 dark:to-cyan-500/5 rounded-2xl blur-xl"></div>
             <img
               src={`${import.meta.env.BASE_URL}image/${feature.image}`}
               alt={feature.title}
@@ -389,10 +389,10 @@ export default function Home() {
         <section id="about" className="mx-auto max-w-5xl py-12 md:py-20">
           <FadeIn>
             <SectionLabel>ABOUT US</SectionLabel>
-            <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 dark:text-white sm:text-4xl">
               Breaking Language Barriers Worldwide
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mx-auto mt-4 max-w-3xl text-center text-sm leading-7 text-slate-600 dark:text-gray-300 sm:text-base">
               Turjman is an AI-powered translation app built for seamless multilingual communication. Whether you're traveling, studying, or working globally — Turjman understands and translates instantly across text, voice, camera, image, and live conversation.
             </p>
           </FadeIn>
@@ -405,12 +405,12 @@ export default function Home() {
             ].map(([value, label]) => (
               <StaggerItem key={label}>
                 <motion.div
-                  className="rounded-2xl border border-slate-200/50 bg-white/80 backdrop-blur-sm px-5 py-6 text-center shadow-sm shadow-blue-500/5"
+                  className="rounded-2xl border border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-900/50 backdrop-blur-sm px-5 py-6 text-center shadow-sm shadow-blue-500/5 dark:shadow-none"
                   whileHover={{ y: -4, boxShadow: '0 12px 30px rgba(37, 99, 235, 0.12)' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 >
-                  <div className="text-2xl font-black bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">{value}</div>
-                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500">{label}</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-blue-600 to-cyan-400 dark:from-blue-400 dark:to-cyan-300 bg-clip-text text-transparent">{value}</div>
+                  <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">{label}</div>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -420,17 +420,17 @@ export default function Home() {
         <section id="faq" className="mx-auto max-w-3xl py-12 md:py-20">
           <FadeIn>
             <SectionLabel>FAQ</SectionLabel>
-            <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 dark:text-white sm:text-4xl">
               Frequently Asked Questions
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <div className="mt-8 rounded-[24px] border border-slate-200/50 bg-white/80 backdrop-blur-sm p-2 shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
+            <div className="mt-8 rounded-[24px] border border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-900/50 backdrop-blur-sm p-2 shadow-[0_20px_50px_rgba(15,23,42,0.06)] dark:shadow-none">
               {faqs.map((faq, index) => (
-                <div key={faq} className="border-b border-slate-100 last:border-b-0">
+                <div key={faq} className="border-b border-slate-100 dark:border-slate-800 last:border-b-0">
                   <button
-                    className="flex w-full items-center justify-between px-4 py-4 text-left text-sm font-semibold text-slate-700 hover:bg-slate-50/50 transition-colors rounded-xl"
+                    className="flex w-full items-center justify-between px-4 py-4 text-left text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors rounded-xl"
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   >
                     <span>{faq}</span>
@@ -450,7 +450,7 @@ export default function Home() {
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="px-4 pb-4 text-sm leading-7 text-slate-600">
+                        <p className="px-4 pb-4 text-sm leading-7 text-slate-600 dark:text-slate-400">
                           {index === 0
                             ? 'Yes, Turjman includes a generous free plan so you can translate wherever you go.'
                             : 'Turjman supports more than 100 languages across text, voice, camera, and conversation modes.'}
@@ -467,16 +467,14 @@ export default function Home() {
         <section id="testimonials" className="mx-auto max-w-6xl py-12 md:py-20">
           <FadeIn>
             <SectionLabel>TESTIMONIALS</SectionLabel>
-            <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 text-center text-3xl font-black tracking-[-0.02em] text-slate-900 dark:text-white sm:text-4xl">
               What Our Users Say
             </h2>
           </FadeIn>
           <StaggerContainer className="mt-8 grid gap-4 md:grid-cols-3" stagger={0.15}>
             {testimonials.map(([name, role, quote], index) => (
-              <StaggerItem key={`${name}-${index}`}>
-                <motion.article
-                  className="rounded-[24px] border border-slate-200/50 bg-white/80 backdrop-blur-sm p-5 shadow-sm shadow-blue-500/5"
-                  whileHover={{ y: -5, boxShadow: '0 16px 40px rgba(15, 23, 42, 0.08)' }}
+              <StaggerItem key={`${name}-${index}`} className="h-full">                <motion.article
+                className="flex h-full flex-col rounded-[24px] border border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-900/50 backdrop-blur-sm p-5 shadow-sm shadow-blue-500/5 dark:shadow-none"                  whileHover={{ y: -5, boxShadow: '0 16px 40px rgba(15, 23, 42, 0.08)' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 >
                   <div className="flex gap-1 text-yellow-400">
@@ -484,14 +482,14 @@ export default function Home() {
                       <Star key={starIndex} size={11} fill="currentColor" />
                     ))}
                   </div>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">"{quote}"</p>
-                  <footer className="mt-4 flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 text-sm font-black text-blue-700">
+                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">"{quote}"</p>
+                    <footer className="mt-auto pt-4 flex items-center gap-3">       
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 text-sm font-black text-blue-700 dark:text-blue-300">
                       {name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-slate-900">{name}</div>
-                      <div className="text-xs text-slate-500">{role}</div>
+                      <div className="text-sm font-semibold text-slate-900 dark:text-white">{name}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">{role}</div>
                     </div>
                   </footer>
                 </motion.article>
@@ -510,13 +508,13 @@ export default function Home() {
 
   <div className="mt-12 flex items-center gap-6">
     <FadeIn direction="left" className="w-1/2">
-      <h2 className="text-4xl font-black leading-none text-slate-900 sm:text-6xl">
+      <h2 className="text-4xl font-black leading-none text-slate-900 dark:text-white sm:text-6xl">
         Download
         <br />
-        <span className="bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent">App</span>
+        <span className="bg-gradient-to-r from-blue-600 to-cyan-400 dark:from-blue-400 dark:to-cyan-300 bg-clip-text text-transparent">App</span>
       </h2>
 
-      <p className="mt-8 max-w-md text-sm leading-7 text-slate-500 sm:text-lg sm:leading-9">
+      <p className="mt-8 max-w-md text-sm leading-7 text-slate-500 dark:text-slate-400 sm:text-lg sm:leading-9">
         Get Turjman on iOS and Android.
         Translate your first conversation
         in under 30 seconds — free forever.
@@ -525,7 +523,7 @@ export default function Home() {
       <div className="mt-8 flex flex-wrap gap-3">
         <motion.a
           href="#"
-          className="rounded-xl bg-slate-950 px-4 py-3 text-sm text-white shadow-lg shadow-slate-500/20 sm:px-7 sm:py-4 sm:text-lg hover:shadow-slate-500/30"
+          className="rounded-xl bg-slate-950 dark:bg-slate-800 px-4 py-3 text-sm text-white shadow-lg shadow-slate-500/20 dark:shadow-black/40 sm:px-7 sm:py-4 sm:text-lg hover:shadow-slate-500/30"
           whileHover={{ y: -3, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -534,7 +532,7 @@ export default function Home() {
 
         <motion.a
           href="#"
-          className="rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 text-sm text-white shadow-lg shadow-blue-500/25 sm:px-7 sm:py-4 sm:text-lg hover:shadow-blue-500/40"
+          className="rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 text-sm text-white shadow-lg shadow-blue-500/25 dark:shadow-blue-900/40 sm:px-7 sm:py-4 sm:text-lg hover:shadow-blue-500/40"
           whileHover={{ y: -3, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -542,7 +540,7 @@ export default function Home() {
         </motion.a>
       </div>
 
-      <StaggerContainer className="mt-8 space-y-3 text-sm text-slate-600 sm:mt-10 sm:space-y-4 sm:text-base" stagger={0.08}>
+      <StaggerContainer className="mt-8 space-y-3 text-sm text-slate-600 dark:text-slate-300 sm:mt-10 sm:space-y-4 sm:text-base" stagger={0.08}>
         {[
           'Free to download, no hidden fees',
           'Offline translation for 20+ languages',
@@ -550,7 +548,7 @@ export default function Home() {
         ].map((item) => (
           <StaggerItem key={item}>
             <div className="flex items-center gap-2">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-600">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-600 dark:text-blue-400">
                 ✓
               </div>
               {item}
@@ -563,7 +561,7 @@ export default function Home() {
     <FadeIn direction="right" delay={0.15} className="flex w-1/2 justify-end">
       <Float>
         <div className="relative">
-          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-2xl"></div>
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 dark:from-blue-500/10 dark:to-cyan-500/10 rounded-3xl blur-2xl"></div>
           <img
             src={`${import.meta.env.BASE_URL}image/img2.png`}
             alt="Turjman translation app"
@@ -591,6 +589,3 @@ export default function Home() {
   </div>
 );
 }
-
-
-    

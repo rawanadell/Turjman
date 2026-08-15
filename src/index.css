@@ -386,3 +386,64 @@ a {
     height: 40px;
   }
 }
+
+.dark .dark\:text-white { color: rgba(255, 255, 255, 0.80); }
+.dark .dark\:text-gray-300 { color: rgba(255, 255, 255, 0.65); }
+.dark .dark\:text-gray-400 { color: rgba(255, 255, 255, 0.50); }
+
+/* =========================================
+   تعديلات الدارك مود (الوضع الليلي)
+   ========================================= */
+
+.dark body {
+  background: var(--color-darkBackground, #09090B);
+  color: #F8FAFC;
+}
+
+.dark .brand,
+.dark .hero h1,
+.dark .site-header nav a,
+.dark .feature-copy h3 {
+  color: #F8FAFC;
+}
+
+.dark .hero p,
+.dark .feature-copy p,
+.dark .faq-item p {
+  color: #9CA3AF;
+}
+
+.dark .phone-card,
+.dark .feature-row,
+.dark .faq-item {
+  background: #18181B;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #27272A;
+}
+
+.dark .phone-screen {
+  background: linear-gradient(180deg, #1F2937, #111827);
+}
+
+.dark .phone-top {
+  color: #9CA3AF;
+}
+
+.dark .ai-pill,
+.dark .section-label {
+  background: rgba(37, 99, 235, 0.2);
+  color: #60A5FA;
+}
+
+.dark .store-button {
+  background: #27272A;
+  color: #F8FAFC;
+}
+
+.dark .store-button.play {
+  background: #2563EB;
+}
+
+.dark .blue-block {
+  background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(6,182,212,0.1));
+}
