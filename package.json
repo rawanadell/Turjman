@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://basmalawaled.github.io/turjman",
-
+    "homepage": "https://rawanadell.github.io/Turjman",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,7 +11,6 @@
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
-
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
@@ -23,10 +21,9 @@
     "react-router-dom": "^7.18.1",
     "tailwind-merge": "^3.6.0"
   },
-
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.0.3",
     "@tailwindcss/vite": "^4.3.2",
+    "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^10.6.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
