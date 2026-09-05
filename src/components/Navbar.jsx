@@ -1,190 +1,153 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, Languages } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+// 1. استدعاء مكتبة الترجمة
+import { useTranslation } from 'react-i18next'
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    const savedTheme = window.localStorage.getItem('theme');
-    if (savedTheme) return savedTheme === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      
-      setIsScrolled(currentScrollY > 20);
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const body = document.body;
-    
-    if (darkMode) {
-      root.classList.add('dark');
-      body.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-      body.classList.remove('dark');
-    }
-    
-    root.style.colorScheme = darkMode ? 'dark' : 'light';
-    window.localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  }, [darkMode]);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Features', path: '/#features' },
-    { name: 'Privacy', path: '/privacy' },
-    { name: 'Contact', path: '/contact' },
-  ];
+function Privacy() {
+  // 2. تهيئة أداة الترجمة
+  const { t } = useTranslation()
 
   return (
-    <motion.nav
-      initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : -100 }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled
-        ? 'bg-white/90 dark:bg-[#09090b]/90 backdrop-blur-2xl border-b border-gray-200/50 dark:border-gray-800/50 py-4 shadow-lg shadow-blue-500/5'
-        : 'bg-transparent py-6'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        <Link to="/" className="group flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 group-hover:scale-105">
-            <Languages size={20} className="text-white" />
+    <div className="min-h-screen bg-surface font-body-lg antialiased flex flex-col pt-24">
+      {/* Header */}
+      <header className="mb-16 text-center px-5 md:px-12 max-w-[1000px] mx-auto">
+        <h1 className="font-headline-xl text-headline-xl text-primary-container mb-4">
+          {t('privacy_title')}
+        </h1>
+        <p className="font-headline-md text-headline-md text-secondary mb-4">
+          {t('privacy_brand')}
+        </p>
+        <p className="font-body-md text-body-md text-on-surface-variant">
+          {t('privacy_last_updated')}
+        </p>
+      </header>
+
+      {/* Policy Content */}
+      <div className="flex-grow px-5 md:px-12 max-w-[1000px] mx-auto mb-12">
+        <div className="grid grid-cols-1 gap-6">
+          {/* Section 1 */}
+          <section className="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20 relative overflow-hidden group">
+            {/* تعديل الخط الجانبي للاتجاهين */}
+            <div className="absolute top-0 rtl:right-0 ltr:left-0 w-2 h-full bg-secondary"></div>
+            <h2 className="font-headline-md text-headline-md text-primary-container mb-6 flex items-center gap-3">
+              <span className="material-symbols-outlined text-secondary">info</span>
+              {t('privacy_sec1_title')}
+            </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              {t('privacy_sec1_desc')}
+            </p>
+          </section>
+
+          {/* Section 2 & 3: Data Collection & Storage */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section className="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20 relative">
+              {/* تعديل تدرج الألوان (Gradient) للاتجاهين */}
+              <div className="absolute top-0 rtl:right-0 ltr:left-0 w-full h-1 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-secondary to-transparent"></div>
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-6 flex items-center gap-3">
+                <span className="material-symbols-outlined text-secondary">database</span>
+                {t('privacy_sec2_title')}
+              </h2>
+              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                {t('privacy_sec2_desc_1')} <strong>{t('privacy_sec2_desc_strong')}</strong> {t('privacy_sec2_desc_2')}
+              </p>
+            </section>
+
+            <section className="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20 relative">
+              <div className="absolute top-0 rtl:right-0 ltr:left-0 w-full h-1 rtl:bg-gradient-to-l ltr:bg-gradient-to-r from-secondary to-transparent"></div>
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-6 flex items-center gap-3">
+                <span className="material-symbols-outlined text-secondary">save</span>
+                {t('privacy_sec3_title')}
+              </h2>
+              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                {t('privacy_sec3_desc_1')} <strong>{t('privacy_sec3_desc_strong')}</strong> {t('privacy_sec3_desc_2')}
+              </p>
+            </section>
           </div>
-          {}
-          <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary dark:from-blue-400 dark:to-cyan-300 bg-clip-text text-transparent">
-            Turjman
-          </span>
-        </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`font-medium transition-all duration-300 relative group ${
-              location.pathname === link.path
-                ? 'text-primary dark:text-blue-400 font-semibold'
-                : 'text-gray-600 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400'
-            }`}
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-          
-          <motion.button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110"
-            whileHover={{ rotate: darkMode ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
-          </motion.button>
-          
-          <motion.a
-            href="/contact"
-            className="px-6 py-2.5 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white rounded-full font-semibold shadow-lg shadow-blue-500/25 transition-all hover:-translate-y-0.5 hover:shadow-blue-500/40"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Us
-          </motion.a>
-        </div>
+          {/* Section 4 & 5: Usage & Sharing */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section className="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20">
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-6 flex items-center gap-3">
+                <span className="material-symbols-outlined text-secondary">analytics</span>
+                {t('privacy_sec4_title')}
+              </h2>
+              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                {t('privacy_sec4_desc')}
+              </p>
+            </section>
 
-        <div className="md:hidden flex items-center gap-4">
-          <motion.button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110"
-            whileHover={{ rotate: darkMode ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
-          </motion.button>
-          
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110"
-          >
-            {}
-            {isOpen ? <X size={24} className="text-slate-600 dark:text-white" /> : <Menu size={24} className="text-slate-600 dark:text-white" />}
-          </button>
+            <section className="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20">
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-6 flex items-center gap-3">
+                <span className="material-symbols-outlined text-secondary">share_off</span>
+                {t('privacy_sec5_title')}
+              </h2>
+              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                {t('privacy_sec5_desc_1')} <strong>{t('privacy_sec5_desc_strong')}</strong> {t('privacy_sec5_desc_2')}
+              </p>
+            </section>
+          </div>
+
+          {/* Section 6: Security */}
+          <section className="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20 relative">
+            {/* تعديل الخط الجانبي الأيسر/الأيمن */}
+            <div className="absolute rtl:left-0 ltr:right-0 top-0 bottom-0 w-1 bg-secondary"></div>
+            <h2 className="font-headline-md text-headline-md text-primary-container mb-6 flex items-center gap-3">
+              <span className="material-symbols-outlined text-secondary">security</span>
+              {t('privacy_sec6_title')}
+            </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              {t('privacy_sec6_desc')}
+            </p>
+          </section>
+
+          {/* Section 7, 8, 9 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <section className="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20">
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary">delete</span>
+                {t('privacy_sec7_title')}
+              </h2>
+              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                {t('privacy_sec7_desc')}
+              </p>
+            </section>
+
+            <section className="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20">
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary">child_care</span>
+                {t('privacy_sec8_title')}
+              </h2>
+              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                {t('privacy_sec8_desc')}
+              </p>
+            </section>
+
+            <section className="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_24px_rgba(7,26,59,0.05)] border border-outline-variant/20">
+              <h2 className="font-headline-md text-headline-md text-primary-container mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary">update</span>
+                {t('privacy_sec9_title')}
+              </h2>
+              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                {t('privacy_sec9_desc')}
+              </p>
+            </section>
+          </div>
+
+          {/* Section 10: Contact */}
+          <section className="bg-surface-container-high p-8 rounded-xl text-center mt-6 border border-outline-variant/20">
+            <h2 className="font-headline-md text-headline-md text-primary-container mb-4">
+              {t('privacy_sec10_title')}
+            </h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-6">
+              {t('privacy_sec10_desc')}
+            </p>
+            <a className="inline-flex items-center gap-2 font-headline-md text-headline-md text-secondary hover:text-secondary-fixed transition-colors font-bold" href="mailto:support@example.com">
+              <span className="material-symbols-outlined">mail</span>
+              support@example.com
+            </a>
+          </section>
         </div>
       </div>
+    </div>
+  )
+}
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0, y: -20 }}
-            animate={{ opacity: 1, height: 'auto', y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50 shadow-xl"
-          >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <Link
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`font-medium transition-all duration-300 relative group inline-block ${
-                    location.pathname === link.path
-                      ? 'text-primary dark:text-blue-400 font-semibold'
-                      : 'text-gray-600 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400'
-                  }`}
-                  >
-                    {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="pt-2"
-              >
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-semibold text-center shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-0.5"
-                >
-                  Contact Us
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
-  );
-};
-
-export default Navbar;
+export default Privacy
